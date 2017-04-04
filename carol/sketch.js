@@ -1,17 +1,17 @@
-var board;
-var carol;
-var carolpositions = [];
-var flowers = [];
+var board; // Store the board object
+var carol; // Store the Carol object
+var carolpositions = []; // Store carol's previous positions
+var flowers = []; // Store various flower objects.
 var count;
 function setup() {
   createCanvas(660, 660);
   stroke(255, 0, 0);
   strokeWeight(2);
-  board = new Board();
-  carol = new Carol();
+  board = new Board(); // Initialize the board
+  carol = new Carol(); // Initialize carol
   count = 0;
   for(var i = 0; i < 1500; i++){
-    flowers.push(new Flower());
+    flowers.push(new Flower()); // make an array of Flowers
   }
 }
 
@@ -30,6 +30,7 @@ function draw() {
   count += 1;
 }
 
+// The board object
 function Board(){
   
   this.show = function(){
@@ -41,27 +42,31 @@ function Board(){
   }
   }
 }
+// End of board object
 
-
+// The Carol object
 function Carol(){
   this.rightallowed = true;
   this.leftallowed = false;
-  this.pos = createVector(30, 30);
-  this.show = function(){
+
+  this.pos = createVector(30, 30); // Starting position of Carol
+
+  this.show = function(){ // Display Carol
     push();
     fill(255,224,189);
     noStroke();
     ellipse(this.pos.x, this.pos.y, 15, 15);
     pop();
   }
-  this.flowerpresent = function(flowerpos){
+
+  this.flowerpresent = function(flowerpos){ // Check if flower is present (Does not work properly. NEED TO FIX!!)
     if(dist(this.pos.x, this.pos.y, flowerpos.x, flowerpos.y) < 30){
       return true;
     }else{
       return false;
     }
   }
-  this.move = function(){
+  this.move = function(){ // Move Carol (NOT COMPLETE)
     if(dist(this.pos.x, this.pos.y, width, 30) <= 30){
       this.rightallowed = false;
       this.leftallowed = true;
@@ -79,9 +84,9 @@ function Carol(){
     }
   }
 }
+// End of Carol object
 
-
-
+// The flower object
 function Flower(){
   this.picked = false;
   this.drop = function(location){
@@ -96,13 +101,13 @@ function Flower(){
     pop();
     }
   }
-  this.pick = function(){
+  this.pick = function(){ // Find a way to remove the object from the array.
     
   }
 }
+// End of flower object
 
-
-
+// Drop bleeper
 function Bleeper(){
   this.show = function(loc){
     push();
