@@ -77,7 +77,7 @@ this.show = function(){
     }
   }
   this.score = function(){
-    if(this.pos.y > height - 23){
+    if(this.pos.y > height - 24){
       score += 1;
       showScore(20, 20, score);
       console.log("HIT")

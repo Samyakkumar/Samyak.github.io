@@ -41,6 +41,7 @@ background(255);
 function Drops(col){
   this.x = random(-100, width);
   this.y = random(-500, 0);
+  this.z = random(0, -50);
   this.g = random(3, 10);
   this.windforce = 0;
   this.widthdrop = random(2, 4);
