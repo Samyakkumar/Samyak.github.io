@@ -38,9 +38,9 @@ function Player(){
       this.pos.y = height;
     }
   }
-  
+
   this.inclength = function(){
-    this.traillength += 1;
+    this.traillength += Math.ceil((this.path.length + 1)/(this.traillength + 1));
   }
 
   this.addtail = function(){
