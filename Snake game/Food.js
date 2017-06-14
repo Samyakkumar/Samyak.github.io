@@ -7,7 +7,7 @@ function Food(){
     if(!this.eaten){
       push();
       noStroke();
-      fill(255, 0, 0);
+      fill(255, 0, 0, 15);
       rect(this.pos.x, this.pos.y, this.side, this.side);
       pop();
     }else{
